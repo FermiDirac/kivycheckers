@@ -1,20 +1,21 @@
 from kivy.app import App
 from kivy.uix.gridlayout import GridLayout 
 from kivy.uix.widget import Widget 
-from kivy.uix.button import Button
 from kivy.graphics import *
 
-class CheckersSquare(Widget):
+class WhiteSquare(Widget):
+    pass
+
+class BlackSquare(Widget):
     pass
 
 class CheckersGame(GridLayout):
-    def __init__(self):
-        super(CheckersGame, self).__init__()
-        self.cols = 8
-
     def make_board(self):
-        for i in range(64):
-            self.add_widget(CheckersSquare())
+        for i in range(0, 64):
+            if i % 2 == 0:
+                self.add_widget(BlackSquare())
+            else:
+                self.add_widget(WhiteSquare())   
 
 class CheckersApp(App):
     def build(self):
